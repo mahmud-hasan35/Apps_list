@@ -7,6 +7,7 @@ import Root from './Root/Root.jsx'
 import Home from './Componets/Home/Home.jsx'
 import Apps from './Componets/Apps/Apps.jsx';
 import axios from 'axios';
+import AppDetails from './Componets/Apps/AppDetils.jsx';
 
 const router = createBrowserRouter([
  {
@@ -30,6 +31,183 @@ const router = createBrowserRouter([
       
     },
 
+    {
+      path: 'detail/:id',
+      Component: AppDetails,
+       loader: async ({params}) => {
+        const res = await axios.get('/Apps.json')
+        const detail = res.data.find((app) => app.id === parseInt(params.id) );
+         return detail
+      } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
   ]
   
  },
