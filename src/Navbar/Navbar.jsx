@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -11,11 +12,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-gray-600">
-          <li className="text-purple-600 font-medium cursor-pointer">Home</li>
-          <li className="cursor-pointer hover:text-purple-600">Apps</li>
-          <li className="cursor-pointer hover:text-purple-600">
+          <NavLink to={'/'} className="text-purple-600 font-medium cursor-pointer">Home</NavLink>
+          <NavLink to={'/Apps'} className="list-none">Apps</NavLink>
+          <NavLink className="cursor-pointer hover:text-purple-600">
             Installation
-          </li>
+          </NavLink>
         </ul>
 
         {/* Desktop Button */}
@@ -36,7 +37,7 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden mt-4 flex flex-col gap-4 text-gray-600">
           <li className="list-none text-purple-600 font-medium">Home</li>
-          <li className="list-none">Apps</li>
+          <NavLink to={'/Apps'} className="list-none">Apps</NavLink>
           <li className="list-none">Installation</li>
 
           <button className="bg-purple-600 text-white px-4 py-2 rounded-lg w-fit">

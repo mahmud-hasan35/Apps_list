@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaGooglePlay, FaApple } from "react-icons/fa";
  import img from "../assets/hero (2).png"
 
 const Hero = () => {
@@ -66,32 +67,37 @@ const Hero = () => {
           simpler, smarter, and more exciting.
         </p>
 
-        <div
-          data-aos="fade-up"
-          data-aos-delay="400"
-          className="flex flex-col sm:flex-row justify-center gap-3 mt-6"
-        >
-      <a
-  href="https://play.google.com/store"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <button className="border px-5 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition">
-    Google Play
-  </button>
-</a>
+        
 
-<a
-  href="https://www.apple.com/app-store/"
-  target="_blank"
-  rel="noopener noreferrer"
+<div
+  data-aos="fade-up"
+  data-aos-delay="400"
+  className="flex flex-col sm:flex-row justify-center gap-4 mt-6"
 >
-  <button className="border px-5 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition">
-    App Store
-  </button>
-</a>
-        </div>
+  {/* Google Play */}
+  <a
+    href="https://play.google.com/store"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <button className="flex items-center gap-2 border px-5 py-2 cursor-pointer rounded-lg hover:bg-gray-200 transition">
+      <FaGooglePlay className="text-green-600 text-lg" />
+      <span>Google Play</span>
+    </button>
+  </a>
 
+  {/* App Store */}
+  <a
+    href="https://www.apple.com/app-store/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <button className="flex items-center gap-2 border px-5 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition">
+      <FaApple className="text-black text-lg" />
+      <span>App Store</span>
+    </button>
+  </a>
+</div>
            <div className="relative flex justify-center mt-10">
         <img
           src={img}
