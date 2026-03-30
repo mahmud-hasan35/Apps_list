@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaGithub } from "react-icons/fa";
 import { NavLink } from "react-router";
 
 const Navbar = () => {
@@ -20,9 +21,16 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Button */}
-        <button className="hidden md:block bg-purple-600 text-white px-4 py-2 rounded-lg">
-          Contribute
-        </button>
+                  <a
+  href="https://github.com/mahmud-hasan35"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="flex items-center cursor-pointer gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg w-fit hover:bg-purple-700 transition">
+    <FaGithub className="text-lg" />
+    Contribute
+  </button>
+</a>
 
         {/* Mobile Menu Button */}
         <div
@@ -36,13 +44,20 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden mt-4 flex flex-col gap-4 text-gray-600">
-          <li className="list-none text-purple-600 font-medium">Home</li>
+          <NavLink to={'/'} className="list-none text-purple-600 font-medium">Home</NavLink>
           <NavLink to={'/Apps'} className="list-none">Apps</NavLink>
-          <li className="list-none">Installation</li>
+          <NavLink to={'/'} className="list-none">Installation</NavLink>
 
-          <button className="bg-purple-600 text-white px-4 py-2 rounded-lg w-fit">
-            Contribute
-          </button>
+          <a
+  href="https://github.com/mahmud-hasan35"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="flex items-center cursor-pointer gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg w-fit hover:bg-purple-700 transition">
+    <FaGithub className="text-lg" />
+    Contribute
+  </button>
+</a>
         </div>
       )}
     </div>
