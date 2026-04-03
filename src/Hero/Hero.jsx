@@ -74,13 +74,16 @@ const Hero = () => {
   data-aos-delay="400"
   className="flex flex-col sm:flex-row justify-center gap-4 mt-6"
 >
+<div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+  
   {/* Google Play */}
   <a
     href="https://play.google.com/store"
     target="_blank"
     rel="noopener noreferrer"
+    className="w-full sm:w-auto"
   >
-    <button className="flex items-center gap-2 border px-5 py-2 cursor-pointer rounded-lg hover:bg-gray-200 transition">
+    <button className="w-full sm:w-auto flex items-center justify-center gap-2 border px-5 py-3 rounded-lg hover:bg-gray-200 transition">
       <FaGooglePlay className="text-green-600 text-lg" />
       <span>Google Play</span>
     </button>
@@ -91,12 +94,15 @@ const Hero = () => {
     href="https://www.apple.com/app-store/"
     target="_blank"
     rel="noopener noreferrer"
+    className="w-full sm:w-auto"
   >
-    <button className="flex items-center gap-2 border px-5 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition">
+    <button className="w-full sm:w-auto flex items-center justify-center gap-2 border px-5 py-3 rounded-lg hover:bg-gray-200 transition">
       <FaApple className="text-black text-lg" />
       <span>App Store</span>
     </button>
   </a>
+
+</div>
 </div>
            <div className="relative flex justify-center mt-10">
         <img

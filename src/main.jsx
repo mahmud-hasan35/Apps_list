@@ -10,6 +10,8 @@ import axios from 'axios';
 import AppDetails from './Componets/Apps/AppDetils.jsx';
 import InstalledApps from './Componets/Installation/InstalledApps.jsx';
 import { Toaster } from 'react-hot-toast';
+import ErrorPage from './Componets/ErrorPage/ErrorPage.jsx';
+
 const router = createBrowserRouter([
  {
   path:'/',
@@ -49,11 +51,17 @@ const router = createBrowserRouter([
      path: "installed",
      Component: InstalledApps
 
-    }
+    },
 
+    {
+    path: "*",
+    Component:ErrorPage
+   }
   ]
   
  },
+ 
+ 
 
 ])
 
