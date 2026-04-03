@@ -2,6 +2,8 @@ import { NavLink } from "react-router";
 import TrendingApps from "./TrendingApps";
 
 const Trending = ({ data }) => {
+  
+  
   return (
     <div className="py-16 bg-gray-100 px-10">
       <h2 className="text-3xl font-bold text-center">Trending Apps</h2>

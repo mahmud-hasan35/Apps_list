@@ -1,8 +1,55 @@
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FaDownload, FaStar, FaThumbsUp } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import {  useLoaderData, useNavigate } from "react-router";
 
 export default function AppDetails() {
   const detail = useLoaderData();
+
+
+  const formatNumber = (num) => {
+  if (num >= 1_000_000) {
+    return (num / 1_000_000).toFixed(1) + "M";
+  } else if (num >= 1_000) {
+    return (num / 1_000).toFixed(1) + "K";
+  } else {
+    return num;
+  }
+};
+
+
+
+const [installed, setInstalled] = useState(false);
+
+useEffect(() => {
+  const stored = JSON.parse(localStorage.getItem("installedApps")) || [];
+
+  const isExist = stored.find(item => item.id === detail.id);
+  if (isExist) {
+    setInstalled(true);
+  }
+}, [detail.id]);
+
+
+
+const handleInstall = () => {
+  const stored = JSON.parse(localStorage.getItem("installedApps")) || [];
+
+  // already installed check
+  if (!stored.find(item => item.id === detail.id)) {
+    stored.push(detail);
+    localStorage.setItem("installedApps", JSON.stringify(stored));
+  }
+
+  setInstalled(true);
+  toast("Install Successful ✅");
+
+
+};
+
+
+
+
 
   // 🔥 safe destructure
   if (!detail) return <p className="text-center mt-10">Loading...</p>;
@@ -56,7 +103,7 @@ export default function AppDetails() {
               <FaDownload className="text-green-600 text-xl" />
               <div>
                 <p className="text-gray-500 text-sm">Downloads</p>
-                <h3 className="font-bold text-xl">{downloads}</h3>
+                <h3 className="font-bold text-xl">{formatNumber(downloads)}</h3>
               </div>
             </div>
 
@@ -72,15 +119,24 @@ export default function AppDetails() {
               <FaThumbsUp className="text-purple-600 text-xl" />
               <div>
                 <p className="text-gray-500 text-sm">Total Reviews</p>
-                <h3 className="font-bold text-xl">{reviews}</h3>
+                <h3 className="font-bold text-xl">{formatNumber(reviews)}</h3>
               </div>
             </div>
           </div>
 
           {/* Install Button */}
-          <button className="mt-6 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition shadow">
-            Install Now ({size} MB)
-          </button>
+        <button
+  onClick={handleInstall}
+  disabled={installed}
+  className={`mt-6 px-6 py-2 rounded-lg transition shadow 
+    ${
+      installed
+        ? "bg-gray-400 cursor-not-allowed text-white"
+        : "bg-green-500 hover:bg-green-600 text-white"
+    }`}
+>
+  {installed ? "Installed ✅" : `Install Now (${size} MB)`}
+</button>
         </div>
       </div>
 

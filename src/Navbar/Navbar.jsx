@@ -15,7 +15,7 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-8 text-gray-600">
           <NavLink to={'/'} className="text-purple-600 font-medium cursor-pointer">Home</NavLink>
           <NavLink to={'/Apps'} className="list-none">Apps</NavLink>
-          <NavLink className="cursor-pointer hover:text-purple-600">
+          <NavLink to={'/installed'} className="cursor-pointer hover:text-purple-600">
             Installation
           </NavLink>
         </ul>

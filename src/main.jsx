@@ -8,7 +8,8 @@ import Home from './Componets/Home/Home.jsx'
 import Apps from './Componets/Apps/Apps.jsx';
 import axios from 'axios';
 import AppDetails from './Componets/Apps/AppDetils.jsx';
-
+import InstalledApps from './Componets/Installation/InstalledApps.jsx';
+import { Toaster } from 'react-hot-toast';
 const router = createBrowserRouter([
  {
   path:'/',
@@ -40,174 +41,16 @@ const router = createBrowserRouter([
          return detail
       } 
 
+    },
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    {
+      
+     path: "installed",
+     Component: InstalledApps
 
     }
+
   ]
   
  },
@@ -216,6 +59,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Toaster position="top-right" />
     <RouterProvider router={router}></RouterProvider>
   </StrictMode>,
 )
