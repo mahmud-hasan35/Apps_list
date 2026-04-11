@@ -3,6 +3,14 @@ import { FaDownload, FaStar } from 'react-icons/fa'
 import { Link } from 'react-router'
 
 export default function AllApps({apps}) {
+
+
+    const formatNumber = (num) => {
+    if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + "M";
+    if (num >= 1_000) return (num / 1_000).toFixed(1) + "K";
+    return num;
+  };
+  
   return (
         <>
           <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
@@ -19,7 +27,7 @@ export default function AllApps({apps}) {
     
             <div className="flex justify-between mt-2 text-xs items-center">
               <Link to={`/detail/${apps.id}`}  className="text-green-600 flex items-center gap-1 cursor-pointer">
-                <FaDownload /> {apps.downloads}
+                <FaDownload /> {formatNumber(apps.downloads)}
               </Link>
     
               <span className="text-orange-500 flex items-center gap-1">
